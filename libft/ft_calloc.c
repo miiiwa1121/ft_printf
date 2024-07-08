@@ -3,21 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 17:50:45 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/06/16 18:30:35 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/07/02 09:31:51 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
+#include <stdint.h>
 
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
+	if (size != 0 && count > SIZE_MAX / size)
+	{
+		return (NULL);
+	}
 	ptr = malloc(count * size);
 	if (ptr == NULL)
 		return (ptr);

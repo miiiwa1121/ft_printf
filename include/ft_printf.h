@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/22 23:40:49 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/02 09:38:41 by mtsubasa         ###   ########.fr       */
+/*   Created: 2024/05/11 21:34:05 by mtsubasa          #+#    #+#             */
+/*   Updated: 2024/07/08 13:21:21 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-void	ft_putstr_fd(char *s, int fd)
-{
-	int	len;
+# include <stdarg.h>
+# include <unistd.h>
+# include "../libft/libft.h"
 
-	len = 0;
-	if (!s)
-		return ;
-	len = ft_strlen((const char *)s);
-	write(fd, s, len);
-}
+int ft_printf(const char *format, ...);
+int ft_print_char(int c);
+int ft_print_string(char *str);
+int ft_print_pointer(unsigned long long ptr);
+int ft_print_integer(int n);
+int ft_print_unsigned(unsigned int n);
+int ft_print_hex(unsigned int n, char format);
 
-// int main(void)
-// {
-//     char *s;
-
-//     s = "Hello, world!";
-//     ft_putstr_fd(s, 1);
-//     return (0);
-// }
+#endif

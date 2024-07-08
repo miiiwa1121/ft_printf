@@ -5,85 +5,89 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 13:30:00 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/06/22 20:56:56 by mtsubasa         ###   ########.fr       */
+/*   Created: 2024/06/29 22:26:42 by mtsubasa          #+#    #+#             */
+/*   Updated: 2024/06/29 22:26:44 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static size_t	ft_cword(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
-	size_t	count;
+	int	count;
+	int	in_word;
 
-	if (!*s)
-		return (0);
 	count = 0;
+	in_word = 0;
 	while (*s)
 	{
-		while (*s == c)
-			s++;
-		if (*s)
+		if (*s != c && !in_word)
+		{
+			in_word = 1;
 			count++;
-		while (*s != c && *s)
-			s++;
+		}
+		else if (*s == c)
+			in_word = 0;
+		s++;
 	}
 	return (count);
 }
 
+static char	*get_next_word(char const **s, char c)
+{
+	char		*word;
+	int			len;
+	char const	*start;
+
+	len = 0;
+	start = *s;
+	while (**s && **s != c)
+	{
+		len++;
+		(*s)++;
+	}
+	word = malloc(sizeof(char) * (len + 1));
+	if (!word)
+		return (NULL);
+	word[len] = '\0';
+	while (len--)
+		word[len] = start[len];
+	return (word);
+}
+
+static char	**free_result(char **result, int i)
+{
+	while (i > 0)
+		free(result[--i]);
+	free(result);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	char	**lst;
-	size_t	word_len;
+	char	**result;
 	int		i;
+	int		word_count;
 
-	lst = (char **)malloc((ft_cword(s, c) + 1) * sizeof(char *));
-	if (!s || !lst)
-		return (0);
+	if (!s)
+		return (NULL);
+	word_count = count_words(s, c);
+	result = malloc(sizeof(char *) * (word_count + 1));
+	if (!result)
+		return (NULL);
 	i = 0;
 	while (*s)
 	{
-		while (*s == c && *s)
-			s++;
-		if (*s)
+		if (*s != c)
 		{
-			if (!ft_strchr(s, c))
-				word_len = ft_strlen(s);
-			else
-				word_len = ft_strchr(s, c) - s;
-			lst[i++] = ft_substr(s, 0, word_len);
-			s += word_len;
+			result[i] = get_next_word(&s, c);
+			if (!result[i])
+				return (free_result(result, i));
+			i++;
 		}
+		else
+			s++;
 	}
-	lst[i] = NULL;
-	return (lst);
+	result[i] = NULL;
+	return (result);
 }
-
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	char	c;
-// 	char	**result;
-// 	size_t	i;
-
-// 	char *str = "   lorem   ipsum dolor     sit amet, consectetur   "
-// 				"adipiscing elit. Sed non risus. Suspendisse   ";
-// 	c = ' ';
-// 	result = ft_split(str, c);
-// 	if (!result)
-// 	{
-// 		printf("Memory allocation failed\n");
-// 		return (1);
-// 	}
-// 	i = 0;
-// 	while (result[i])
-// 	{
-// 		printf("result[%zu]: %s\n", i, result[i]);
-// 		free(result[i]);
-// 		i++;
-// 	}
-// 	free(result);
-// 	return (0);
-// }
