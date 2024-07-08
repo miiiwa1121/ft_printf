@@ -6,7 +6,7 @@
 #    By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/26 15:59:00 by mtsubasa          #+#    #+#              #
-#    Updated: 2024/07/08 13:21:02 by mtsubasa         ###   ########.fr        #
+#    Updated: 2024/07/08 13:27:17 by mtsubasa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,13 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 INCLUDE = -I./include -I./libft
 
-SRCS = src/ft_printf.c src/ft_print_char.c src/ft_print_string.c \
-       src/ft_print_pointer.c src/ft_print_integer.c src/ft_print_unsigned.c \
-       src/ft_print_hex.c
+SRCS = 	src/ft_printf.c \
+		src/ft_print_char.c \
+		src/ft_print_string.c \
+		src/ft_print_pointer.c \
+		src/ft_print_integer.c \
+		src/ft_print_unsigned.c \
+		src/ft_print_hex.c \
 
 OBJS = $(SRCS:.c=.o)
 

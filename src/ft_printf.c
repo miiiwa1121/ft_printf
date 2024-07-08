@@ -6,13 +6,13 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 13:09:17 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/08 13:23:34 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/07/08 13:36:31 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int ft_format(va_list args, const char format)
+static int ft_format(va_list args, const char format)//%の後ろに一致する記号があったら、そのプログラムへ移行させる
 {
     if (format == 'c')
         return (ft_print_char(va_arg(args, int)));
@@ -42,7 +42,7 @@ int ft_printf(const char *format, ...)
     va_start(args, format);
     while (format[i])
     {
-        if (format[i] == '%')
+        if (format[i] == '%')//与えられた文字列の中に％を見つけたら
         {
             len += ft_format(args, format[i + 1]);
             i++;
