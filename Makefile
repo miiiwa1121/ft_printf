@@ -6,11 +6,11 @@
 #    By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/26 15:59:00 by mtsubasa          #+#    #+#              #
-#    Updated: 2024/07/08 13:27:17 by mtsubasa         ###   ########.fr        #
+#    Updated: 2024/07/11 09:22:18 by mtsubasa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = printf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 INCLUDE = -I./include -I./libft

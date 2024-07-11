@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-static int ft_hex_len(unsigned int num)
+static int ft_hex_len(unsigned int num)//１６進数
 {
     int len;
 
