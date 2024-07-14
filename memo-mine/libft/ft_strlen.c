@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_string.c                                  :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/13 23:11:19 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/14 21:43:59 by mtsubasa         ###   ########.fr       */
+/*   Created: 2024/04/21 19:25:32 by mtsubasa          #+#    #+#             */
+/*   Updated: 2024/06/16 16:23:36 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stddef.h>
 
-int	ft_print_string(char *str)
+size_t	ft_strlen(const char *str)
 {
-	int		i;
+	size_t	count;
 
-	i = 0;
-	if (str == NULL)
-		return (ft_print_string("(null)"));
-	while (str[i])
+	count = 0;
+	while (*str != '\0')
 	{
-		ft_print_char(str[i]);
-		i++;
+		str++;
+		count++;
 	}
-	return (i);
+	return (count);
 }
+
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	int len;
+// 	char s[] = "today";
+
+// 	len = ft_strlen(s);
+// 	printf("\"%s\" は %d 文字\n", s, len);
+// 	return (0);
+// }

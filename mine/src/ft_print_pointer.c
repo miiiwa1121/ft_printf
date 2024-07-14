@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 23:11:05 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/13 23:11:10 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/07/14 21:43:48 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	ft_put_ptr(unsigned long long num)
 
 int	ft_print_pointer(unsigned long long ptr)
 {
-	int len;
+	int		len;
 
 	len = 0;
 	len += ft_print_string("0x");

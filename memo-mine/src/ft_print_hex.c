@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 23:09:59 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/14 21:43:32 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/07/13 23:10:10 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_hex_len(unsigned int num)
 {
-	int		len;
+	int len;
 
 	len = 0;
 	while (num != 0)

@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_string.c                                  :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/13 23:11:19 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/14 21:43:59 by mtsubasa         ###   ########.fr       */
+/*   Created: 2024/04/22 12:44:02 by mtsubasa          #+#    #+#             */
+/*   Updated: 2024/06/23 00:09:58 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	ft_print_string(char *str)
+int	ft_toupper(int c)
 {
-	int		i;
-
-	i = 0;
-	if (str == NULL)
-		return (ft_print_string("(null)"));
-	while (str[i])
+	if (c >= 'a' && c <= 'z')
 	{
-		ft_print_char(str[i]);
-		i++;
+		return (c - ('a' - 'A'));
 	}
-	return (i);
+	else
+	{
+		return (c);
+	}
 }

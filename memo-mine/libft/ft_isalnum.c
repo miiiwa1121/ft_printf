@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_string.c                                  :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/13 23:11:19 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/14 21:43:59 by mtsubasa         ###   ########.fr       */
+/*   Created: 2024/04/21 19:10:30 by mtsubasa          #+#    #+#             */
+/*   Updated: 2024/06/16 18:29:44 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_string(char *str)
+int	ft_isalnum(int c)
 {
-	int		i;
-
-	i = 0;
-	if (str == NULL)
-		return (ft_print_string("(null)"));
-	while (str[i])
+	if (ft_isalpha(c) || ft_isdigit(c))
 	{
-		ft_print_char(str[i]);
-		i++;
+		return (1);
 	}
-	return (i);
+	else
+	{
+		return (0);
+	}
 }

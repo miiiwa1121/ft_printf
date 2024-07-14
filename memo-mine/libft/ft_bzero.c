@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_string.c                                  :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/13 23:11:19 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/14 21:43:59 by mtsubasa         ###   ########.fr       */
+/*   Created: 2024/04/21 21:06:41 by mtsubasa          #+#    #+#             */
+/*   Updated: 2024/06/30 15:05:03 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdio.h>
 
-int	ft_print_string(char *str)
+void	ft_bzero(void *s, size_t n)
 {
-	int		i;
+	char	*ptr;
 
-	i = 0;
-	if (str == NULL)
-		return (ft_print_string("(null)"));
-	while (str[i])
+	ptr = s;
+	while (n-- > 0)
 	{
-		ft_print_char(str[i]);
-		i++;
+		*ptr = '\0';
+		ptr++;
 	}
-	return (i);
 }
+
+// int	main(void)
+// {
+// 	char	str[] = "123456789";
+
+// 	ft_bzero(str + 2, 3);
+// 	printf("%s\n", str);
+// 	return (0);
+// }

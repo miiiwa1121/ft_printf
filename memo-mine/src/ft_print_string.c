@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 23:11:19 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/14 21:43:59 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/07/13 23:11:27 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_print_string(char *str)
 {
-	int		i;
+	int i;
 
 	i = 0;
 	if (str == NULL)

@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_string.c                                  :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/13 23:11:19 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/14 21:43:59 by mtsubasa         ###   ########.fr       */
+/*   Created: 2024/04/21 20:22:43 by mtsubasa          #+#    #+#             */
+/*   Updated: 2024/06/16 20:46:06 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdio.h>
 
-int	ft_print_string(char *str)
+void	*ft_memset(void *buf, int ch, size_t n)
 {
-	int		i;
+	unsigned char	*ptr;
+	unsigned char	c;
 
-	i = 0;
-	if (str == NULL)
-		return (ft_print_string("(null)"));
-	while (str[i])
+	ptr = (unsigned char *)buf;
+	c = (unsigned char)ch;
+	while (n-- > 0)
 	{
-		ft_print_char(str[i]);
-		i++;
+		*ptr = c;
+		ptr++;
 	}
-	return (i);
+	return (buf);
 }
+
+// int	main(void)
+// {
+// 	char	str[] = "123456789";
+
+// 	ft_memset(str + 2, '*', 5);
+// 	printf("%s\n", str); // 12*****89を期待
+// 	return (0);
+// }

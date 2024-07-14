@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_string.c                                  :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/13 23:11:19 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/14 21:43:59 by mtsubasa         ###   ########.fr       */
+/*   Created: 2024/06/23 00:36:38 by mtsubasa          #+#    #+#             */
+/*   Updated: 2024/06/23 00:50:13 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <unistd.h>
 
-int	ft_print_string(char *str)
+void	ft_putendl_fd(char *s, int fd)
 {
-	int		i;
+	size_t	len;
 
-	i = 0;
-	if (str == NULL)
-		return (ft_print_string("(null)"));
-	while (str[i])
+	if (s == NULL)
 	{
-		ft_print_char(str[i]);
-		i++;
+		return ;
 	}
-	return (i);
+	len = 0;
+	while (s[len] != '\0')
+	{
+		len++;
+	}
+	write(fd, s, len);
+	write(fd, "\n", 1);
 }
+
+// int	main(void)
+// {
+// 	char	*s;
+
+// 	s = "Hello, world!";
+// 	ft_putendl_fd(s, 1);
+// 	return (0);
+// }

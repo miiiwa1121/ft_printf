@@ -6,51 +6,55 @@
 /*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:46:53 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/14 21:42:26 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/07/13 23:11:55 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <limits.h>
 
-static long	checknum(long n, const char *s, int sign)
+static int	ft_isspace(int c)
 {
-	if (sign == 1 && (n > LONG_MAX / 10 || (n == LONG_MAX / 10 && *s
-				- '0' >= LONG_MAX % 10)))
-		return (LONG_MAX);
-	else if (sign == -1 && (-n < LONG_MIN / 10 || (-n == LONG_MIN / 10 && -(*s
-					- '0') <= LONG_MIN % 10)))
-		return (LONG_MIN);
+	return (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
+		|| c == '\r');
+}
+
+static long long	handle_overflow(long long n, char digit, int sign)
+{
+	if (sign > 0)
+	{
+		if (n > LONG_MAX / 10 || (n == LONG_MAX / 10 && digit > LONG_MAX % 10))
+			return (LONG_MAX);
+	}
 	else
 	{
-		n *= 10;
-		n += *s++ - '0';
+		if (n > -(LONG_MIN / 10) || (n == -(LONG_MIN / 10) && digit > -(LONG_MIN
+					% 10)))
+			return (LONG_MIN);
 	}
-	return (n);
+	return (n * 10 + digit * sign);
 }
 
 int	ft_atoi(const char *str)
 {
-	unsigned long long	num;
-	int					sign;
+	long long	result;
+	int			sign;
 
-	num = 0;
+	result = 0;
 	sign = 1;
-	while ((*str >= '\011' && *str <= '\015') || *str == '\040')
+	while (ft_isspace(*str))
 		str++;
 	if (*str == '-' || *str == '+')
-	{
-		if (*str++ == '-')
-			sign *= -1;
-	}
+		sign = (*str++ == '-') ? -1 : 1;
 	while (ft_isdigit(*str))
 	{
-		num = checknum(num, str, sign);
+		result = handle_overflow(result, *str - '0', sign);
+		if (result == LONG_MAX || result == LONG_MIN)
+			return ((int)result);
 		str++;
 	}
-	return (num * sign);
+	return (int)(result * sign);
 }
-
 // #include <stdio.h>
 
 // int	main(void)

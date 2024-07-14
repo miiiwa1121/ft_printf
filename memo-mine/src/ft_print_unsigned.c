@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 23:11:37 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/14 21:44:21 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/07/14 21:39:32 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_num_len(unsigned int num)
 {
-	int		len;
+	int	len;
 
 	len = 0;
 	while (num != 0)
@@ -46,8 +46,8 @@ static char	*ft_uitoa(unsigned int n)
 
 int	ft_print_unsigned(unsigned int n)
 {
-	int		len;
-	char	*num;
+	int len;
+	char *num;
 
 	len = 0;
 	if (n == 0)
