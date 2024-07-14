@@ -29,7 +29,7 @@ static void ft_put_ptr(unsigned long long num)
     }
 }
 
-int ft_print_pointer(unsigned long long ptr)//ポインタ
+int ft_print_pointer(unsigned long long ptr)
 {
     int len;
 

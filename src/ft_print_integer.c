@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int ft_print_integer(int n)//整数型
+int ft_print_integer(int n)
 {
     int len;
     char *num;
