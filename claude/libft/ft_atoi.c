@@ -3,57 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:46:53 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/11 09:24:58 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/07/13 23:11:55 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <limits.h>
 
-static int ft_isspace(int c)
+static int	ft_isspace(int c)
 {
-    return (c == ' ' || c == '\t' || c == '\n' ||
-            c == '\v' || c == '\f' || c == '\r');
+	return (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
+		|| c == '\r');
 }
 
-static long long handle_overflow(long long n, char digit, int sign)
+static long long	handle_overflow(long long n, char digit, int sign)
 {
-    if (sign > 0)
-    {
-        if (n > LONG_MAX / 10 || (n == LONG_MAX / 10 && digit > LONG_MAX % 10))
-            return LONG_MAX;
-    }
-    else
-    {
-        if (n > -(LONG_MIN / 10) || (n == -(LONG_MIN / 10) && digit > -(LONG_MIN % 10)))
-            return LONG_MIN;
-    }
-    return n * 10 + digit * sign;
+	if (sign > 0)
+	{
+		if (n > LONG_MAX / 10 || (n == LONG_MAX / 10 && digit > LONG_MAX % 10))
+			return (LONG_MAX);
+	}
+	else
+	{
+		if (n > -(LONG_MIN / 10) || (n == -(LONG_MIN / 10) && digit > -(LONG_MIN
+					% 10)))
+			return (LONG_MIN);
+	}
+	return (n * 10 + digit * sign);
 }
 
-int ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-    long long result = 0;
-    int sign = 1;
+	long long	result;
+	int			sign;
 
-    while (ft_isspace(*str))
-        str++;
-
-    if (*str == '-' || *str == '+')
-        sign = (*str++ == '-') ? -1 : 1;
-
-    while (ft_isdigit(*str))
-    {
-        result = handle_overflow(result, *str - '0', sign);
-        if (result == LONG_MAX || result == LONG_MIN)
-            return (int)result;
-        str++;
-    }
-
-    return (int)(result * sign);
+	result = 0;
+	sign = 1;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '-' || *str == '+')
+		sign = (*str++ == '-') ? -1 : 1;
+	while (ft_isdigit(*str))
+	{
+		result = handle_overflow(result, *str - '0', sign);
+		if (result == LONG_MAX || result == LONG_MIN)
+			return ((int)result);
+		str++;
+	}
+	return (int)(result * sign);
 }
 // #include <stdio.h>
 
