@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 13:09:17 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/13 23:11:43 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/07/15 13:00:04 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,18 @@ static int	ft_format(va_list args, const char format)
 	return (0);
 }
 
-int	ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)	//可変長引数:個数が決まってない引数
+										//...の部分に任意個数の引数が書ける
+										//va_start,va_arg,va_end:va_list型とそれを操作するマクロ群
 {
-	va_list args;
+	va_list args;	//va_list任意個の引数を１個の変数に変換
+					//定義:typedef char* va_list
 	int i;
 	int len;
 
 	i = 0;
 	len = 0;
-	va_start(args, format);
+	va_start(args, format);	//可変長引数の列の最初の変数へのポインタをva_list型変数（char*型だ）に設定
 	while (format[i])
 	{
 		if (format[i] == '%') //与えられた文字列の中に％を見つけたら

@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 13:09:17 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/14 22:48:30 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/07/15 12:42:25 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ static int	ft_format(va_list args, const char format)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list args;
-	int i;
-	int len;
+	va_list	args;
+	int		i;
+	int		len;
 
 	if (!format)
 		return (-1);
