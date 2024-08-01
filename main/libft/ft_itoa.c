@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:46:42 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/06/17 17:46:46 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/08/02 06:11:55 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,24 +68,3 @@ char	*ft_itoa(int n)
 	number_sequence(n, str, digits);
 	return (str);
 }
-
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	int		num;
-// 	char	*str;
-
-// 	num = -0;
-// 	str = ft_itoa(num);
-// 	if (str)
-// 	{
-// 		printf("Integer: %d, String: %s\n", num, str);
-// 		free(str);
-// 	}
-// 	else
-// 	{
-// 		printf("Memory allocation failed.\n");
-// 	}
-// 	return (0);
-// }
