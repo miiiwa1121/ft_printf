@@ -3,18 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/06/26 15:59:00 by mtsubasa          #+#    #+#              #
-#    Updated: 2024/07/14 22:52:33 by mtsubasa         ###   ########.fr        #
+#    Created: 2024/05/11 21:46:27 by mtsubasa          #+#    #+#              #
+#    Updated: 2024/08/02 03:29:34 by mtsubasa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = libft.a
+INCLUDE = ../include
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = ft_printf.c ft_put_functions.c ft_handle_functions.c
+
+SRCS = ft_itoa.c
+
 OBJS = $(SRCS:.c=.o)
+
+RM = rm -f
 
 all: $(NAME)
 
@@ -25,11 +30,11 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

@@ -3,32 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtsubasa <mtsubasa@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 21:34:05 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/07/14 19:07:54 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/08/02 03:07:04 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+# define FT_PRINTF_H
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdlib.h>
+# include "libft.h"
+# include <stdarg.h>
+# include <unistd.h>
 
-int ft_printf(const char *format, ...);
-int ft_putchar(char c);
-int ft_putstr(char *str);
-int ft_putnbr(long n);
-int ft_putnbr_base(unsigned long n, char *base, int base_len);
-int handle_char(va_list args);
-int handle_string(va_list args);
-int handle_pointer(va_list args);
-int handle_int(va_list args);
-int handle_unsigned(va_list args);
-int handle_hex_lower(va_list args);
-int handle_hex_upper(va_list args);
-int handle_percent(void);
+int	ft_printf(const char *format, ...);
+int	ft_print_char(int c);
+int	ft_print_string(char *str);
+int	ft_print_pointer(unsigned long long ptr);
+int	ft_print_integer(int n);
+int	ft_print_unsigned(unsigned int n);
+int	ft_print_hex(unsigned int n, char format);
 
 #endif
