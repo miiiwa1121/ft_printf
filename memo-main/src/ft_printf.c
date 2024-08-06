@@ -6,16 +6,16 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 13:09:17 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/08/06 12:10:05 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/08/02 07:47:39 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-static int	ft_format(va_list args, const char format)
+static int	ft_format(va_list args, const char format)//formatを見てargsを振り分ける
 {
 	if (format == 'c')
-		return (ft_print_char(va_arg(args, int)));
+		return (ft_print_char(va_arg(args, int)));//int型としてargsを受け取る
 	else if (format == 's')
 		return (ft_print_string(va_arg(args, char *)));
 	else if (format == 'p')
@@ -31,7 +31,7 @@ static int	ft_format(va_list args, const char format)
 	return (0);
 }
 
-int	ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)//printf("%d%s\n", i,j);	format=%d%s\n	...=i,j　が入る
 {
 	va_list		args;
 	int			i;
@@ -39,12 +39,12 @@ int	ft_printf(const char *format, ...)
 
 	i = 0;
 	len = 0;
-	va_start(args, format);
+	va_start(args, format);//argsの中に、引数が全部格納される。
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
-			len += ft_format(args, format[i + 1]);
+			len += ft_format(args, format[i + 1]);//n番目の引数と%の後ろの記号が渡される
 			i++;
 		}
 		else
