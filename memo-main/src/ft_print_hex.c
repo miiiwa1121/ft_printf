@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 23:09:59 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/08/02 03:23:19 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:42:01 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,22 @@ static void	ft_put_hex(unsigned int num, char format)
 	else
 	{
 		if (num <= 9)
-			ft_print_char(num + '0');
+			ft_print_char(num + '0');//
 		else
 		{
-			if (format == 'x')
+			if (format == 'x')//小文字
 				ft_print_char(num - 10 + 'a');
-			if (format == 'X')
+			if (format == 'X')//大文字
 				ft_print_char(num - 10 + 'A');
 		}
 	}
 }
 
-int	ft_print_hex(unsigned int num, char format)
+int	ft_print_hex(unsigned int num, char format)//16進数変換、formatは大文字小文字の判断
 {
 	if (num == 0)
 		return (ft_print_char('0'));
 	else
-		ft_put_hex(num, format);
+		ft_put_hex(num, format);//引数とx or X
 	return (ft_hex_len(num));
 }
