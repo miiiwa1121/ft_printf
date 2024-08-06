@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 23:11:37 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/08/02 03:23:03 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/08/06 12:27:54 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static char	*ft_uitoa(unsigned int n)
 	char	*num;
 	int		len;
 
-	len = ft_num_len(n);
+	len = ft_num_len(n);//桁数計算
 	num = (char *)malloc(sizeof(char) * (len + 1));
 	if (!num)
 		return (0);
@@ -54,8 +54,8 @@ int	ft_print_unsigned(unsigned int n)
 		len += ft_print_char('0');
 	else
 	{
-		num = ft_uitoa(n);
-		len += ft_print_string(num);
+		num = ft_uitoa(n);//
+		len += ft_print_string(num);//
 		free(num);
 	}
 	return (len);

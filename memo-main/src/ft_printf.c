@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 13:09:17 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/08/02 07:47:39 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/08/06 12:24:39 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 static int	ft_format(va_list args, const char format)//formatを見てargsを振り分ける
 {
-	if (format == 'c')
+	if (format == 'c')//単一文字
 		return (ft_print_char(va_arg(args, int)));//int型としてargsを受け取る
-	else if (format == 's')
+	else if (format == 's')//文字列
 		return (ft_print_string(va_arg(args, char *)));
-	else if (format == 'p')
+	else if (format == 'p')//ポインタ
 		return (ft_print_pointer(va_arg(args, unsigned long long)));
-	else if (format == 'd' || format == 'i')
+	else if (format == 'd' || format == 'i')//10進数、10進数整数
 		return (ft_print_integer(va_arg(args, int)));
-	else if (format == 'u')
+	else if (format == 'u')//符号なし10進数
 		return (ft_print_unsigned(va_arg(args, unsigned int)));
-	else if (format == 'x' || format == 'X')
+	else if (format == 'x' || format == 'X')//16進数大文字、小文字
 		return (ft_print_hex(va_arg(args, unsigned int), format));
-	else if (format == '%')
+	else if (format == '%')//パーセント記号
 		return (ft_print_char('%'));
 	return (0);
 }
 
-int	ft_printf(const char *format, ...)//printf("%d%s\n", i,j);	format=%d%s\n	...=i,j　が入る
+int	ft_printf(const char *format, ...)//printf("%d%s\n", i,j);	format = %d%s\n 	... = i,j　が入る
 {
 	va_list		args;
 	int			i;

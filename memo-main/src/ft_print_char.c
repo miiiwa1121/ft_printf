@@ -6,13 +6,13 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 23:09:28 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/08/02 03:23:24 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/08/06 12:15:55 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int	ft_print_char(int c)
+int	ft_print_char(int c)//出力
 {
-	return (write(1, &c, 1));
+	return (write(1, &c, 1));//標準出力
 }
