@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 13:09:17 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/08/02 07:47:39 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/09/07 18:36:55 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int	ft_printf(const char *format, ...)//printf("%d%s\n", i,j);	format=%d%s\n	...
 }
 
 #include<stdio.h>
+#include <limits.h>
 
 int main() {
     // テストケース1: 単一の文字
@@ -100,8 +101,10 @@ int main() {
     printf("空文字列::::::%s\n\n", "");
 
     // テストケース11: NULLポインタ
-    ft_printf("NULLポインタ::::::%s\n", NULL);
-    printf("NULLポインタ::::::%s\n\n", NULL);
+    // ft_printf("NULLポインタ::::::%s\n", NULL);
+    // printf("NULLポインタ::::::%s\n\n", NULL);
+    ft_printf("NULLポインタ:::::: %s\n", NULL);
+    printf("NULLポインタ:::::: %s\n\n", "(null)");
 
     // テストケース12: 長い文字列
     ft_printf("長い文字列:::::::::::%s\n", "This is a very long string to test the ft_printf function.");
@@ -112,8 +115,10 @@ int main() {
     printf("大きな整数:::::::::::::::::%d\n\n", 2147483647);
 
     // テストケース14: 小さな整数
-    ft_printf("小さな整数:::::::::::::::::%d\n", -2147483648);
-    printf("小さな整数:::::::::::::::::%d\n\n", -2147483648);
+    // ft_printf("小さな整数:::::::::::::::::%d\n", -2147483648);
+    // printf("小さな整数:::::::::::::::::%d\n\n", -2147483648);
+    ft_printf("小さな整数:::::::::::::::::%d\n", INT_MIN);
+    printf("小さな整数:::::::::::::::::%d\n\n", INT_MIN);
 
     // テストケース15: 複数のフォーマット指定子
     ft_printf("複数のフォーマット指定子::::::%d, %s, %c, %x, %p, %%\n", 42, "answer", 'A', 255, &main);
@@ -124,8 +129,9 @@ int main() {
     printf("負の符号なし整数:::::::::::::::%u\n\n", -1);
 
     // テストケース17: 大きな符号なし整数
-    ft_printf("大きな符号なし整数:::::::::::::::%u\n", 4294967295);
-    printf("大きな符号なし整数:::::::::::::::%u\n\n", 4294967295);
-
+    // ft_printf("大きな符号なし整数:::::::::::::::%u\n", 4294967295);
+    // printf("大きな符号なし整数:::::::::::::::%u\n\n", 4294967295);
+    ft_printf("大きな符号なし整数:::::::::::::::%u\n", UINT_MAX);
+    printf("大きな符号なし整数:::::::::::::::%u\n\n", UINT_MAX);
     return 0;
 }
