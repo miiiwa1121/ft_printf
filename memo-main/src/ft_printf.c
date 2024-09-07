@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 13:09:17 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/09/07 18:47:59 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/08/06 12:24:39 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 static int	ft_format(va_list args, const char format)//formatを見てargsを振り分ける
 {
-	if (format == 'c')
+	if (format == 'c')//単一文字
 		return (ft_print_char(va_arg(args, int)));//int型としてargsを受け取る
-	else if (format == 's')
+	else if (format == 's')//文字列
 		return (ft_print_string(va_arg(args, char *)));
-	else if (format == 'p')
+	else if (format == 'p')//ポインタ
 		return (ft_print_pointer(va_arg(args, unsigned long long)));
-	else if (format == 'd' || format == 'i')
+	else if (format == 'd' || format == 'i')//10進数、10進数整数
 		return (ft_print_integer(va_arg(args, int)));
-	else if (format == 'u')
+	else if (format == 'u')//符号なし10進数
 		return (ft_print_unsigned(va_arg(args, unsigned int)));
-	else if (format == 'x' || format == 'X')
+	else if (format == 'x' || format == 'X')//16進数大文字、小文字
 		return (ft_print_hex(va_arg(args, unsigned int), format));
-	else if (format == '%')
+	else if (format == '%')//パーセント記号
 		return (ft_print_char('%'));
 	return (0);
 }
 
-int	ft_printf(const char *format, ...)//printf("%d%s\n", i,j);	format=%d%s\n	...=i,j　が入る
+int	ft_printf(const char *format, ...)//printf("%d%s\n", i,j);	format = %d%s\n 	... = i,j　が入る
 {
 	va_list		args;
 	int			i;
@@ -56,7 +56,6 @@ int	ft_printf(const char *format, ...)//printf("%d%s\n", i,j);	format=%d%s\n	...
 }
 
 #include<stdio.h>
-#include <limits.h>
 
 int main() {
     // テストケース1: 単一の文字
@@ -101,10 +100,8 @@ int main() {
     printf("空文字列::::::%s\n\n", "");
 
     // テストケース11: NULLポインタ
-    // ft_printf("NULLポインタ::::::%s\n", NULL);
-    // printf("NULLポインタ::::::%s\n\n", NULL);
-    ft_printf("NULLポインタ:::::: %s\n", NULL);
-    printf("NULLポインタ:::::: %s\n\n", "(null)");
+    ft_printf("NULLポインタ::::::%s\n", NULL);
+    printf("NULLポインタ::::::%s\n\n", NULL);
 
     // テストケース12: 長い文字列
     ft_printf("長い文字列:::::::::::%s\n", "This is a very long string to test the ft_printf function.");
@@ -115,10 +112,8 @@ int main() {
     printf("大きな整数:::::::::::::::::%d\n\n", 2147483647);
 
     // テストケース14: 小さな整数
-    // ft_printf("小さな整数:::::::::::::::::%d\n", -2147483648);
-    // printf("小さな整数:::::::::::::::::%d\n\n", -2147483648);
-    ft_printf("小さな整数:::::::::::::::::%d\n", INT_MIN);
-    printf("小さな整数:::::::::::::::::%d\n\n", INT_MIN);
+    ft_printf("小さな整数:::::::::::::::::%d\n", -2147483648);
+    printf("小さな整数:::::::::::::::::%d\n\n", -2147483648);
 
     // テストケース15: 複数のフォーマット指定子
     ft_printf("複数のフォーマット指定子::::::%d, %s, %c, %x, %p, %%\n", 42, "answer", 'A', 255, &main);
@@ -129,9 +124,8 @@ int main() {
     printf("負の符号なし整数:::::::::::::::%u\n\n", -1);
 
     // テストケース17: 大きな符号なし整数
-    // ft_printf("大きな符号なし整数:::::::::::::::%u\n", 4294967295);
-    // printf("大きな符号なし整数:::::::::::::::%u\n\n", 4294967295);
-    ft_printf("大きな符号なし整数:::::::::::::::%u\n", UINT_MAX);
-    printf("大きな符号なし整数:::::::::::::::%u\n\n", UINT_MAX);
+    ft_printf("大きな符号なし整数:::::::::::::::%u\n", 4294967295);
+    printf("大きな符号なし整数:::::::::::::::%u\n\n", 4294967295);
+
     return 0;
 }
