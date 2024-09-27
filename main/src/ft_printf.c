@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 13:09:17 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/09/07 18:47:59 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/09/27 11:54:14 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	ft_format(va_list args, const char format)//formatを見てargsを振り分ける
 {
 	if (format == 'c')
-		return (ft_print_char(va_arg(args, int)));//int型としてargsを受け取る
+		return (ft_print_char(va_arg(args, int)));
 	else if (format == 's')
 		return (ft_print_string(va_arg(args, char *)));
 	else if (format == 'p')
@@ -59,6 +59,7 @@ int	ft_printf(const char *format, ...)//printf("%d%s\n", i,j);	format=%d%s\n	...
 #include <limits.h>
 
 int main() {
+
     // テストケース1: 単一の文字
     ft_printf("c:::単一の文字::::::::::::::::::%c,%c\n", 'A', 'B');
     printf("c:::単一の文字::::::::::::::::::%c,%c\n\n", 'A', 'B');

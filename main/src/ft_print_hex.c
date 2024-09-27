@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 23:09:59 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/08/02 03:23:19 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/09/27 13:57:28 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_hex_len(unsigned int num)
 	return (len);
 }
 
-static void	ft_put_hex(unsigned int num, char format)
+static void	ft_put_hex(unsigned int num, char format)//16進数変換　＋　大文字小文字変換
 {
 	if (num >= 16)
 	{

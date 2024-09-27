@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 23:10:24 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/08/02 03:23:52 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/09/27 12:09:49 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_print_integer(int n)
 	char	*num;
 
 	len = 0;
-	num = ft_itoa(n);
-	len = ft_print_string(num);
-	free(num);
+	num = ft_itoa(n);//int to string
+	len = ft_print_string(num);//文字列出力
+	free(num);//itoa内のmallocをfree
 	return (len);
 }

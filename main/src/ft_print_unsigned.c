@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 23:11:37 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/08/02 03:23:03 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/09/27 13:37:31 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ static char	*ft_uitoa(unsigned int n)
 	num[len] = '\0';
 	while (n != 0)
 	{
-		num[len - 1] = n % 10 + '0';
+		num[--len] = (n % 10) + '0';
 		n = n / 10;
-		len--;
 	}
 	return (num);
 }
@@ -54,8 +53,8 @@ int	ft_print_unsigned(unsigned int n)
 		len += ft_print_char('0');
 	else
 	{
-		num = ft_uitoa(n);
-		len += ft_print_string(num);
+		num = ft_uitoa(n);//整数itoa
+		len += ft_print_string(num);//桁数計算
 		free(num);
 	}
 	return (len);
