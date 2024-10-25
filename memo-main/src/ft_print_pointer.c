@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 23:11:05 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/08/06 19:35:48 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/10/25 17:11:55 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static void	ft_put_ptr(unsigned long long num)
 {
 	if (num >= 16)
 	{
-		ft_put_ptr(num / 16);//
-		ft_put_ptr(num % 16);//
+		ft_put_ptr(num / 16);
+		ft_put_ptr(num % 16);
 	}
 	else
 	{

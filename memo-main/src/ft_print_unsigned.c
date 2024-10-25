@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 23:11:37 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/08/06 19:25:00 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/10/25 17:17:36 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*ft_uitoa(unsigned int n)
 	if (!num)
 		return (0);
 	num[len] = '\0';//NULL止め
-	while (n != 0)
+	while (n)
 	{
 		num[len - 1] = n % 10 + '0';//後ろから順に、型変換(int to char)しながら引数nをnumに格納
 		n = n / 10;

@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 23:09:59 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/08/09 23:44:28 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/10/25 17:11:07 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static void	ft_put_hex(unsigned int num, char format)
 	}
 	else
 	{
-		if (num <= 9)
-			ft_print_char(num + '0');//
+		if (num <= 9)//数字
+			ft_print_char(num + '0');
 		else
 		{
 			if (format == 'x')//小文字
