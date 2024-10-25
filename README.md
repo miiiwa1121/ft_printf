@@ -29,6 +29,7 @@ unsigned long long	0 ～ 18,446,744,073,709,551,615
 
 int printf( const char *format, ... );
 
+formatの部分に%の後の文字
 ...の部分に任意個数の引数が書けます。
 
 
