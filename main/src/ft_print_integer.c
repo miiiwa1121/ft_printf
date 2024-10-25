@@ -20,6 +20,8 @@ int	ft_print_integer(int n)
 
 	len = 0;
 	num = ft_itoa(n);//int to string
+	if (!num)
+	    return(NULL)
 	len = ft_print_string(num);//文字列出力
 	free(num);//itoa内のmallocをfree
 	return (len);
