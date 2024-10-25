@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 23:11:05 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/09/27 12:06:48 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/10/25 19:41:51 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,14 @@ int	ft_print_pointer(unsigned long long ptr)
 	int		len;
 
 	len = 0;
-	len += ft_print_string("0x");
 	if (ptr == 0)
-		len += ft_print_char('0');
+	{
+		len += ft_print_string("(nil)"); // 文字列として(nil)を出力
+		return (len);
+	}
 	else
 	{
+		len += ft_print_string("0x");
 		ft_put_ptr(ptr);//16進数変換、出力
 		len += ft_ptr_len(ptr);//桁数計算
 	}
