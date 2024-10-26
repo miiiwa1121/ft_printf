@@ -6,7 +6,7 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 21:34:05 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/10/26 19:11:06 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/10/26 19:38:56 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-#include <stddef.h>
+# include <stddef.h>
 
 int	ft_printf(const char *format, ...);
 int	ft_print_char(int c);
