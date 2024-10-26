@@ -2,10 +2,10 @@
 make
 
 ./src
-cc *.c -I../include -I../libft -L../libft -lft -o ft_printf
+gcc main.c libftprintf.a
 
 leaks
-valgrind --leak-check=full ./ft_printf
+valgrind --leak-check=full ./a.out
 
 -------------------------------------------------------------------------
 
@@ -70,3 +70,9 @@ C言語では、関数に引数を渡す際に、char 型（1バイト）は int
 桁数を返す理由は何？
 A.
 len を最終的に返す理由は、出力した文字数を呼び出し元に返すためです。これは、標準の printf 関数の仕様に倣っています。printf は、フォーマットに従って出力された文字数を返します。
+
+問3
+int	ft_print_integer(int n)のreturnでNULLでなく、0を返している理由は何？
+A.
+ft_print_integer関数がint型だから
+
