@@ -6,11 +6,11 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 23:09:59 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/09/27 13:57:28 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/10/26 18:28:47 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "../ft_printf.h"
 
 static int	ft_hex_len(unsigned int num)
 {

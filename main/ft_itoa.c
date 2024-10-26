@@ -6,12 +6,11 @@
 /*   By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:46:42 by mtsubasa          #+#    #+#             */
-/*   Updated: 2024/09/27 12:16:19 by mtsubasa         ###   ########.fr       */
+/*   Updated: 2024/10/26 19:10:52 by mtsubasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
+#include "ft_printf.h"
 
 static int	digits_len(int n)//桁数計算
 {
