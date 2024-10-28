@@ -72,7 +72,7 @@ A.
 len を最終的に返す理由は、出力した文字数を呼び出し元に返すためです。これは、標準の printf 関数の仕様に倣っています。printf は、フォーマットに従って出力された文字数を返します。
 
 問3
-int	ft_print_integer(int n)のreturnでNULLでなく、0を返している理由は何？
+int	ft_print_integer(int n)のitoa関数の後のreturnでNULLでなく、0を返している理由は何？
 A.
 ft_print_integer関数がint型だから
 
