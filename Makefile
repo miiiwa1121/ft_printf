@@ -5,36 +5,41 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mtsubasa <mtsubasa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/11 21:46:27 by mtsubasa          #+#    #+#              #
-#    Updated: 2024/08/02 03:29:34 by mtsubasa         ###   ########.fr        #
+#    Created: 2024/06/26 15:59:00 by mtsubasa          #+#    #+#              #
+#    Updated: 2024/12/22 09:17:04 by mtsubasa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-INCLUDE = ../include
+NAME = libftprintf.a
+
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_itoa.c
+SRCS = ft_itoa.c \
+       src/ft_print_char.c \
+       src/ft_print_hex.c \
+       src/ft_print_integer.c \
+       src/ft_print_pointer.c \
+       src/ft_print_string.c \
+       src/ft_print_unsigned.c \
+       src/ft_printf.c
 
 OBJS = $(SRCS:.c=.o)
-
-RM = rm -f
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-%.o: %.c
+%.o: %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re
